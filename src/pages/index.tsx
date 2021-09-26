@@ -11,7 +11,9 @@ import Particle from "../components/meshes/Particle"
 import About from "../components/About"
 import Contact from "../components/Contact"
 
+
 export default function Index() {
+
   return (
     <>
       <Helmet>

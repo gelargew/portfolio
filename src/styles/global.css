@@ -143,7 +143,6 @@ section:first-child h1:first-child {
   height: 100%;
   width: 50%;
   z-index: 10;
-  transition: 0.4s;
   transform: translateX(50%);
 }
 
@@ -210,10 +209,20 @@ header {
   letter-spacing: 2rem;
   margin: 0;
   text-align: center;
+  opacity: 0;
 }
 
 .contacts {
   grid-area: contacts;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  place-self: center;
+  z-index: 10;
+}
+
+.contacts a {
+  opacity: 0;
 }
 
 .geisha-mask {

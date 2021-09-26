@@ -9,7 +9,7 @@ export default function GeishaMaskCanvas({...props}) {
     return (
         <div {...props}>
             <Canvas >
-                <pointLight intensity={0.2} position={[-4, 1, 4]} />
+                <pointLight intensity={0.2} position={[-4, 1, 0]} />
                 <Suspense fallback={null}>
                     <GeishaMask position={[1, 0 , 0]}  />
                 </Suspense>

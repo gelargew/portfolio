@@ -16,6 +16,14 @@ const WORKS = [
         projectURL: 'https://point-of-sales-puce.vercel.app/'
     },
     {
+        title: 'SHADERS',
+        imageURL: '/project_screenshot/shader.png',
+        timeline: '2021',
+        tech: ['Gatsby', 'THREE.js', 'Typescript', 'React'],
+        description: 'collection of glsl shader that i created for public',
+        projectURL: 'https://gelargym-glsl.vercel.app/backgroundParticle'
+    },
+    {
         title: 'KPAULI',
         imageURL: '/project_screenshot/kpauli.png',
         timeline: '2021',

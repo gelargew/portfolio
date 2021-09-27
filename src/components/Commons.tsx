@@ -1,4 +1,4 @@
-import React, { SVGProps, useState } from 'react'
+import React from 'react'
 
 
 const ArrowRight = ({...props}) => {

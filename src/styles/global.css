@@ -65,7 +65,25 @@ main {
     gap: 250px;
     position: fixed;
     scroll-behavior: smooth;
-    /* scroll-snap-type: y mandatory; */
+    scroll-snap-type: y mandatory;
+}
+
+header {
+  top: 0;
+  left: 0;
+  position: fixed;
+  margin-left: 20px;
+}
+
+.my-icon {
+  width: 70px;
+  height: 100px;
+}
+
+
+.animated-p {
+  opacity: 0;
+  white-space: pre-wrap;
 }
 
 section {
@@ -81,6 +99,8 @@ section:first-child h1:first-child {
   margin-top: 30vh
 }
 
+/* WORK SECTION */
+
 .works {
   padding-top: 3rem;
   display: flex;
@@ -95,9 +115,10 @@ section:first-child h1:first-child {
   grid-template-areas: 
   "head head head head"
   "title arrowleft img arrowright"
+  "title desc desc desc"
   "title detail detail detail";
   grid-template-columns: 2fr 1fr 8fr 1fr;
-  grid-template-rows: 1fr 4fr 2fr;
+  grid-template-rows: 1fr 4fr 1fr 1fr;
 }
 
 .works img {
@@ -105,6 +126,8 @@ section:first-child h1:first-child {
   width: auto;
   height: 90%;
   min-height: 60%;
+  min-width: 50%;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -113,24 +136,35 @@ section:first-child h1:first-child {
   grid-area: head;
 }
 
+.project-description {
+  grid-area: desc;
+  overflow-wrap: normal;
+}
+
 .work-title {
   grid-area: title;
   writing-mode: vertical-rl;
-  font-size: 6rem;
+  font-size: 4rem;
   transform: rotate(180deg);
   font-style: oblique;
   letter-spacing: 2rem;
   margin: 0;
 }
 
-.work-title:hover {
-  color: red;
-}
-
 .project-tech {
   grid-area: detail;
   display: flex;
+  flex-wrap: wrap;
   gap: 3rem;
+}
+
+.project-tech a {
+  display: flex;
+  place-items: center;
+}
+
+.project-tech a:hover {
+  color: #03DAC5;
 }
 
 .project-nav {
@@ -156,24 +190,9 @@ section:first-child h1:first-child {
 }
 
 
-header {
-    top: 0;
-    left: 0;
-    position: fixed;
-    margin-left: 20px;
-}
-
-.my-icon {
-    width: 70px;
-    height: 100px;
-}
 
 
-.animated-p {
-    opacity: 0;
-    white-space: pre-wrap;
-}
-
+/* ABOUT SECTION */
 
 .aboutme {
   padding: 20%;
@@ -187,6 +206,11 @@ header {
   top: 0;
   right: 0;
   z-index: 0;
+}
+
+.passions {
+  display: inline-block;
+  margin: 0;
 }
 
 /* CONTACT SECTION */
@@ -203,7 +227,7 @@ header {
 .hero-contact {
   grid-area: hero;
   writing-mode: vertical-rl;
-  font-size: 6rem;
+  font-size: 4rem;
   transform: rotate(180deg);
   font-style: oblique;
   letter-spacing: 2rem;
@@ -225,6 +249,23 @@ header {
   opacity: 0;
 }
 
+.contacts a:hover {
+  color: #03DAC5;
+}
+
+.popup {
+  position: absolute;
+  opacity: 0;
+  transition: 1s;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translateY(-1.5rem) translateX(2rem);
+  font-size: small;
+  transition: 0s;
+}
+
 .geisha-mask {
   position: absolute;
   width: 100%;
@@ -232,9 +273,56 @@ header {
   height: 100%;
 }
 
+/* MOBILE */
+
 @media only screen and (hover: none) and (pointer: coarse){
     section:first-child {
       margin: 0 1rem;
+    }
+
+    .works {
+      padding: 0;
+      width: 100%;
+      flex: 1;
+      display: grid;
+      grid-template-areas: 
+      "arrowleft"   
+      "img"
+      "desc"
+      "detail"
+      "arrowright"
+      "title" ;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.5fr 4fr 1fr 2fr 0.5fr 1fr;
+    }
+
+    .works>h1:first-child {
+      display: none;
+    }
+
+    .work-title {
+      grid-area: title;
+      writing-mode: horizontal-tb;
+      font-size: 2rem;
+      font-style: oblique;
+      letter-spacing: 1rem;
+      margin: 0;
+      transform: revert;
+    }
+
+    .project-tech {
+      gap: 0 3rem;
+    }
+
+    .the-arrow {
+      height: 100%;
+      width: 50%;
+      z-index: 10;
+      transform: rotate(90deg);
+    }
+    
+    .the-arrow.right {
+      transform: rotate(270deg);
     }
 
 }

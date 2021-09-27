@@ -1,33 +1,43 @@
 const WORKS = [
     {
+        title: 'PORTFOLIO',
+        imageURL: '/project_screenshot/portfolioSS.png',
+        timeline: '2021',
+        tech: ['Three.js', 'Gatsby', 'Typescript', 'React'],
+        description: '',
+        projectURL: null
+    },
+    {
+        title: 'POS',
+        imageURL: '/project_screenshot/pos.png',
+        timeline: '2021',
+        tech: ['Next.js', 'Material-UI', 'Typescript', 'React'],
+        description: 'Point of sales app focusing on creating custom redux-like storage using hooks',
+        projectURL: 'https://point-of-sales-puce.vercel.app/'
+    },
+    {
+        title: 'KPAULI',
+        imageURL: '/project_screenshot/kpauli.png',
+        timeline: '2021',
+        tech: ['React', 'React Native', 'Django', 'Heroku'],
+        description: 'Interactive & customizable Kraepelin/Pauli (Tes Koran) online test',
+        projectURL: 'https://github.com/gelargew/kraepelin-pauli'
+    },
+    {
         title: 'CONSTRUE',
-        imageURL: '/pex1.jpg',
-        timeline: 'Sept, 2021',
-        tech: ['React', 'THREE.js']
+        imageURL: 'https://raw.githubusercontent.com/gelargew/construe/master/repoAssets/mobile.png',
+        timeline: '2020',
+        tech: ['React', 'Django'],
+        description: 'Library management system, Full stack',
+        projectURL: 'https://github.com/gelargew/construe'
     },
     {
-        title: 'project1',
-        imageURL: '/pex2.jpg',
-        timeline: 'sdsd',
-        tech: ['React', 'THREE.js']
-    },
-    {
-        title: 'project2',
-        imageURL: '/pex3.jpg',
-        timeline: '23, 32',
-        tech: ['React', 'THREE.js']
-    },
-    {
-        title: 'project3',
-        imageURL: 'pex4.jpg',
-        timeline: '23123',
-        tech: ['React', 'THREE.js']
-    },
-    {
-        title: 'psadokowd',
-        imageURL: 'asdko',
-        timeline: 'asdo',
-        tech: ['React', 'THREE.js']
+        title: 'CS50 AI',
+        imageURL: '/project_screenshot/AI.png',
+        timeline: '2020',
+        tech: ['Python', 'NLTK', 'Pandas', 'Machine learning'],
+        description: 'highlight of some of my projects at CS50 Harvard class',
+        projectURL: 'https://www.youtube.com/watch?v=IbYShJAhBjQ&list=PLL7HK6zHaYCR7Tcbmd3MxwAiOsF0CkbgY'
     }
 ]
 

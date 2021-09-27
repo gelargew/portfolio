@@ -1,5 +1,5 @@
 import anime from 'animejs'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SOCIALS from '../CONSTANT/SOCIALS'
 import { fadeUpIn } from '../utils/animes'
 import useOnScreen from '../utils/useOnScreen'
@@ -11,6 +11,8 @@ export default function Contact({...props}) {
     const contacts = useRef<HTMLDivElement>()
     const heroContact = useRef<HTMLHeadingElement>()
     const onScreen = useOnScreen(rf, '-50%')
+    const [email, setEmail] = useState('EMAIL')
+    const [popup, setPopup] = useState('popup')
 
     const animate = () => {
         anime.timeline()
@@ -39,6 +41,15 @@ export default function Contact({...props}) {
         })
     }
 
+    const copyEmail = e => {
+        setEmail('gelargew@gmail.com')
+        navigator.clipboard.writeText('gelargew@gmail.com')
+        setPopup('popup show')
+        setTimeout(() => {
+            setPopup('popup')
+        }, 1500)
+    }
+
     useEffect(() => {
         if (onScreen) {
             animate()
@@ -50,10 +61,14 @@ export default function Contact({...props}) {
 
     return (
         <section ref={rf} className='contact' {...props}>
-            <h1 ref={heroContact} className='hero-contact'>CONTACT</h1>
+            <h1 ref={heroContact} className='hero-contact'>REACH</h1>
             <div ref={contacts} className='contacts'>
                 {SOCIALS.map(SOCIAL => 
-                    <a href={SOCIAL.url} key={SOCIAL.platform} target='_blank'>&#62; {SOCIAL.platform}</a> )}
+                    <a className='contact-link' href={SOCIAL.url} key={SOCIAL.platform} target='_blank'>{SOCIAL.platform}</a> )}
+                    <a href='#' onClick={copyEmail} >
+                        <span className={popup} >copied to clipboard</span>
+                        {email}
+                    </a>
             </div>
             <GeishaMaskCanvas className='geisha-mask' />
         </section>

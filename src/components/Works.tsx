@@ -16,23 +16,20 @@ export default function Works({ ...props }) {
     const work = useMemo(() => WORKS[projectIdx], [projectIdx])
 
     const animate = () => {
-        anime.timeline()
-        .add({
+        anime({
             targets: heroRef.current,
             opacity: [0, 1],
-            easing: 'easeInQuad',
-
+            delay: 1000
         })
-        .add({
+        anime({
             targets: titleRef.current,
             opacity: [0, 1],
-            easing: 'easeInQuad'
+            delay: 1500
         })
-        .add({
+        anime({
             targets: techRef.current.children,
             translateY: [70, 0],
             opacity: [0, 1],
-            easing: 'easeInBack',
             delay: anime.stagger(200)
         })
     }
@@ -65,7 +62,10 @@ export default function Works({ ...props }) {
                    
             <div ref={techRef} className='project-tech'>
                 {work.tech.map(tech => <p key={tech} className='tech'><small>{tech}</small></p>)}
+                {work.projectURL &&
+                <a href={work.projectURL} target='_blank' >visit project</a>}              
             </div>
+            <div className='project-description'><small>{work.timeline}</small><p>{work.description} </p></div>
         </section>
     )
 }

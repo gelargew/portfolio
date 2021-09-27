@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import anime from 'animejs'
 
 import { WORKS } from '../CONSTANT/WORKS'
-import HeroText from './HeroText'
 import { ArrowLeft, ArrowRight } from './Commons'
 import useOnScreen from '../utils/useOnScreen'
 
@@ -43,12 +42,8 @@ export default function Works({ ...props }) {
     }
 
     useEffect(() => {
-        if ( onScreen) {
-            animate()
-        }
-        else {
-            animateOut()
-        }
+        if (onScreen) animate()    
+        else animateOut()
     }, [onScreen, projectIdx])
 
     return (

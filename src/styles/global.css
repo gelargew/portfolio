@@ -326,3 +326,16 @@ section:first-child h1:first-child {
     }
 
 }
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+}

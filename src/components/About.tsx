@@ -7,7 +7,6 @@ const PASSIONS = [
     'GENERATIVE ART',
     'CYCLING',
     'VR/AR',
-    'GAMES',
     '3D MODELLING'
 ]
 

@@ -49,7 +49,7 @@ export default function Works({ ...props }) {
         else {
             animateOut()
         }
-    }, [onScreen])
+    }, [onScreen, projectIdx])
 
     return (
         <section ref={sectionRef} className='works' {...props}>

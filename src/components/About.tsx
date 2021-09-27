@@ -5,7 +5,7 @@ const PASSIONS = [
     'AI',
     'CLASSICAL PIANO',
     'GENERATIVE ART',
-    'BIKING',
+    'CYCLING',
     'VR/AR',
     'GAMES',
     '3D MODELLING'

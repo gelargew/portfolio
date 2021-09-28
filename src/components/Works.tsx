@@ -4,6 +4,9 @@ import anime from 'animejs'
 import { WORKS } from '../CONSTANT/WORKS'
 import { ArrowLeft, ArrowRight } from './Commons'
 import useOnScreen from '../utils/useOnScreen'
+import ImageCanvas from './meshes/ImageCanvas'
+
+
 
 export default function Works({ ...props }) {
     const [projectIdx, setProjectIdx] = useState(0)
@@ -13,6 +16,9 @@ export default function Works({ ...props }) {
     const titleRef = useRef<HTMLHeadingElement>()
     const techRef = useRef<HTMLDivElement>()
     const work = useMemo(() => WORKS[projectIdx], [projectIdx])
+    const textureURLS = WORKS.reduce((prev, cur) => {
+        return [...prev, cur.imageURL]
+    }, [])
 
     const animate = () => {
         anime({
@@ -52,7 +58,7 @@ export default function Works({ ...props }) {
             <h1 ref={titleRef} className='work-title'>{work.title}</h1>
             
             <ArrowLeft onClick={() => setProjectIdx((projectIdx || WORKS.length) - 1)} />
-            <img src={work.imageURL} />
+            <ImageCanvas textureURLS={textureURLS} idx={projectIdx} />
             <ArrowRight onClick={() => setProjectIdx((projectIdx + 1) % WORKS.length)} />
                    
             <div ref={techRef} className='project-tech'>

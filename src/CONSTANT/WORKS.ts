@@ -33,7 +33,7 @@ const WORKS = [
     },
     {
         title: 'CONSTRUE',
-        imageURL: 'https://raw.githubusercontent.com/gelargew/construe/master/repoAssets/mobile.png',
+        imageURL: '/project_screenshot/construe.png',
         timeline: '2020',
         tech: ['React', 'Django'],
         description: 'Library management system, Full stack',

@@ -26,5 +26,6 @@
     "react-helmet": "^6.1.0",
     "three": "^0.132.2",
     "three-stdlib": "^2.4.1"
-  }
+  },
+  "packageManager": "yarn@3.0.2"
 }

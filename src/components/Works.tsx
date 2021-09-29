@@ -10,7 +10,7 @@ import ImageCanvas from './meshes/ImageCanvas'
 
 export default function Works({ ...props }) {
     const [projectIdx, setProjectIdx] = useState(0)
-    const sectionRef = useRef()
+    const sectionRef = useRef<HTMLElement>()
     const onScreen = useOnScreen(sectionRef, '-50%')
     const heroRef = useRef<HTMLHeadingElement>()
     const titleRef = useRef<HTMLHeadingElement>()

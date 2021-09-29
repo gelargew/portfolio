@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { OrbitControls, Plane, shaderMaterial, TorusKnot, useTexture } from '@react-three/drei'
+import { Box, OrbitControls, Plane, shaderMaterial, TorusKnot, useTexture } from '@react-three/drei'
 import { Canvas, extend, useFrame } from '@react-three/fiber'
 import React, { Suspense, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
@@ -15,8 +15,6 @@ export default function ImageCanvas({textureURLS=[], idx, ...props}: { textureUR
             height: '100%'
         }} {...props} >
             <Canvas>
-                <ambientLight />
-                <OrbitControls />
                 <Suspense fallback={null}>
                     <ImagePlane textureURLS={textureURLS} idx={idx} />
                 </Suspense>
@@ -81,6 +79,7 @@ extend({ ImageMaterial })
 
 const ImagePlane = ({ textureURLS, idx }) => {
     const ref = useRef<THREE.Object3D>()
+    const group = useRef<THREE.Group>()
     const textures = useTexture(textureURLS)
     const middleCoord = new THREE.Vector2(0.5, 0.5)
     
@@ -91,17 +90,24 @@ const ImagePlane = ({ textureURLS, idx }) => {
     useFrame((state, delta) => {
         ref.current.material.uniforms.uTime.value += delta
         ref.current.material.uniforms.uMouse.value = middleCoord.clone().add(state.mouse)
-        ref.current.rotation.set(
-            THREE.MathUtils.lerp(ref.current.rotation.x, (state.mouse.y % 2)/-4, 0.01), 
-            THREE.MathUtils.lerp(ref.current.rotation.y, state.mouse.x/4, 0.01), 
+        group.current.rotation.set(
+            THREE.MathUtils.lerp(group.current.rotation.x, (state.mouse.y % 2)/-4, 0.01), 
+            THREE.MathUtils.lerp(group.current.rotation.y, state.mouse.x/4, 0.01), 
             0,
             'YXZ'
             )
     })
 
     return (
-        <Plane ref={ref} args={[10, 6, 20, 30]} >
-            <imageMaterial />
-        </Plane>
+        <group ref={group}>
+            <Plane ref={ref} args={[10, 6, 20, 30]} >
+                <imageMaterial />
+            </Plane>
+            <Box args={[14, 9, 1, 22, 32, 2]} position={[0, 0, -1.01]}>
+                <meshLambertMaterial color='black' />
+            </Box>
+
+        </group>
+
     )
 }

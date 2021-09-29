@@ -42,6 +42,7 @@
     font-weight: 600;
     overflow: hidden;
     height: 100vh;
+    width: 100vw;
    
   }
   
@@ -69,26 +70,24 @@ main {
 }
 
 header {
+  width: 95vw;
   top: 0;
   left: 0;
   position: fixed;
-  margin-left: 20px;
   display: flex;
   height: 5rem;
-  margin: 1rem 1rem 0 1rem;
-  width: 95%;
+  padding: 1rem 1rem 0 1rem;
   justify-content: space-between;
   z-index: 10;
 }
 
 .nav-icon {
-  width: 4em;
+  width: 4rem;
   border-radius: 10%;
 }
 
-.nav-icon:hover {
+.nav-icon:hover, .my-icon:hover {
   cursor: pointer;
-  background: var(--color-bg-3);
 }
 
 #nav-popup {
@@ -310,6 +309,15 @@ section:first-child h1:first-child {
 /* MOBILE */
 
 @media only screen and (hover: none) and (pointer: coarse){
+    header {
+      height: 3rem;
+      width: 90vw;
+    }
+
+    .nav-icon {
+      width: 2rem;
+    }
+
     section:first-child {
       margin: 0 1rem;
     }

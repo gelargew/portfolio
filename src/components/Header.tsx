@@ -4,7 +4,7 @@ import NavigationIcon from '../images/NavigationIcon.svg'
 import CloseIcon from '../images/closeIcon.svg'
 
 const SECTIONS = [
-    'hero',
+    'home',
     'about',
     'works',
     'contacts'
@@ -36,14 +36,14 @@ export default function Header({mainRef, ...props}) {
     }
 
     const navigate = (idx: number) => {
-        hide()
+        if (isPoppin) hide()
         mainRef.current.children[idx].scrollIntoView()
     }
 
     return (
         <>
         <header>
-            <img className='my-icon' src='/icon.svg' />
+            <img onClick={() => navigate(0)} className='my-icon' src='/icon.svg' />
             {isPoppin ?
             <img onClick={hide} className='nav-icon' src={CloseIcon} />:
             <img onClick={show} className='nav-icon' src={NavigationIcon} />}
